@@ -15,10 +15,13 @@
     </table>
 </div>
 <br />
-@using (Html.BeginForm("UserReports", "Home", FormMethod.Get))
+@using (Html.BeginForm("UserReports", "Home", FormMethod.Post, new {@report = Model }))
 {
-    @Html.DropDownListFor(m => m.User_id, ViewBag.UserList as SelectList)@Html.Raw("@mail.ri")
-
+    @Html.DropDownListFor(m => m.User_id, ViewBag.UserList as SelectList)@Html.Raw("@mail.ru")
+    <br/>
+    @Html.Raw("Дата для отчета")
+    <br/>
+    @Html.TextBoxFor(m=>m.Date)
     <input type="submit" value="Показать отчеты" />
 }
 

@@ -213,7 +213,9 @@ namespace TimeMonitor.Controllers
             int selectedIndex = 0;
             SelectList usersList = new SelectList(users, "User_Id", "Email", selectedIndex);
             ViewBag.UserList = usersList;
-            return View("Reports");
+            var model = new ReportViewModel();
+            model.Date = DateTime.Now;
+            return View("Reports", model);
         }
 
 
@@ -223,10 +225,12 @@ namespace TimeMonitor.Controllers
             {
                 report.User_id = userId;
             }
+            var startDate = new DateTime(report.Date.Year, report.Date.Month, 1);
+            var endDate = new DateTime(report.Date.Year, report.Date.Month+1, 1);
             var user = db.Users.FirstOrDefault(x => x.User_Id == report.User_id && x.IsDeleted == false);
             ViewBag.User_id = report.User_id;
             ViewBag.FIO = user.Name_1 + " " + user.Name_2 + " " + user.Name_3;
-            var reportDb = db.Reports.Where(x => x.User_id == report.User_id && x.IsDeleted == false);
+            var reportDb = db.Reports.Where(x => x.User_id == report.User_id && x.IsDeleted == false && x.Date > startDate && x.Date <= endDate);
             var reportVMList = new List<ReportViewModel>();
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Report, ReportViewModel>());
             var mapper = new Mapper(config);
