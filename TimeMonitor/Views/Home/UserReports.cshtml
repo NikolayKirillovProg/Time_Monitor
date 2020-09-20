@@ -1,0 +1,69 @@
+﻿@model List<TimeMonitor.ViewModels.ReportViewModel>
+@{
+    int user_id = ViewBag.User_id;
+}
+<br />
+<h2>Отчеты пользователя @Html.Raw(ViewBag.FIO)</h2>
+<br />
+
+<div>
+    <table>
+        <tr>
+            <td>
+                @Html.ActionLink("Добавить отчет", "AddReport", "Home", new { @user_id = user_id }, new AjaxOptions { HttpMethod = "GET" })
+            </td>
+            <td width="20px">
+            </td>
+            <td>
+                @Html.ActionLink("Назад", "Reports", "Home")
+            </td>
+        </tr>
+    </table>
+    @*@Html.ActionLink("Добавить пользователя", "CreateUser", new AjaxOptions { HttpMethod = "GET" }, new { @class = "modalItem" })*@
+</div>
+<div>
+    @if (Model.Count() > 0)
+    {
+        <table>
+            <tr>
+                <td width="40%">
+                    @Html.Label("Комментарий")
+                </td>
+                <td width="20%">
+                    @Html.Label("Время")
+                </td>
+                <td width="40%">
+                    @Html.Label("Дата отчета")
+                </td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.Summary)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Hours.ToString() + "ч ")@Html.Raw(item.Minutes.ToString() + "м")
+                    </td>
+                    <td>
+                        @Html.Raw(item.Date)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Изменить", "EditReport", new { @rep_id = item.Rep_id }, null)
+                    </td>
+                    <td>
+                        |
+                    </td>
+                    <td>
+                        @Html.ActionLink("Удалить", "DeleteReport", new { @rep_id = item.Rep_id }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        @Html.Raw("Пользователь еще не добавил отчетов")
+    }
+</div>

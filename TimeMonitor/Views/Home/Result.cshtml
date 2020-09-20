@@ -1,0 +1,16 @@
+﻿@model TimeMonitor.ViewModels.ResultViewModel
+
+<br />
+<br />
+<div>
+    @Html.Raw(Model.Message)
+</div>
+@if (ViewBag.UserId != 0 && ViewBag.UserId != null)
+{
+    @Html.ActionLink("Ок", Model.BackUrl, new { @userId = ViewBag.UserId }, null)
+}
+else
+{
+    @Html.ActionLink("Ок", Model.BackUrl)
+}
+

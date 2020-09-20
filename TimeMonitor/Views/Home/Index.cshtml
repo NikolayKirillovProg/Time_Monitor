@@ -1,0 +1,56 @@
+﻿@model List<TimeMonitor.ViewModels.UserViewModel>
+<br />
+<h2>Пользователи</h2>
+<br />
+<div>
+    <table>
+        <tr>
+            <td>
+                @Html.ActionLink("Добавить пользователя", "AddUser", "Home", new AjaxOptions { HttpMethod = "GET" })
+            </td>
+            <td width="20px">
+            </td>
+            <td>
+                @Html.ActionLink("Отчеты", "Reports", "Home")
+            </td>
+        </tr>
+    </table>
+    @*@Html.ActionLink("Добавить пользователя", "CreateUser", new AjaxOptions { HttpMethod = "GET" }, new { @class = "modalItem" })*@
+</div>
+
+<br />
+<div>
+    <table>
+        @if (Model.Count != 0)
+        {
+            <tr>
+                <td width="20%">
+                    @Html.Label("Email")
+                </td>
+                <td width="80%">
+                    @Html.Label("ФИО")
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.Raw(item.Email)@Html.Raw("@mail.ru")
+                </td>
+                <td>
+                    @Html.Raw(item.Name_1 + " " + item.Name_2 + " " + item.Name_3)
+                </td>
+                <td>
+                    @Html.ActionLink("Изменить", "ChangeUser", "Home", new { @userId = item.User_Id }, null)
+                </td>
+                <td>
+                    |
+                </td>
+                <td>
+                    @Html.ActionLink("Удалить", "DeleteUser", "Home", new { @userId = item.User_Id }, null)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

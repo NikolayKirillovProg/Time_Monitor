@@ -1,0 +1,91 @@
+﻿@model TimeMonitor.ViewModels.ReportViewModel
+
+<br />
+<br />
+<div>
+    <h3>Изменение отчета</h3>
+    <div>
+        @using (Html.BeginForm("SaveChangesReport", "Home", FormMethod.Post, new { @report = Model }))
+        {
+            @Html.HiddenFor(x => x.IsValid)
+            @Html.HiddenFor(x => x.Rep_id)
+            @Html.HiddenFor(x => x.User_id)
+            <table>
+                @if (Model.IsValid == false && Model.Summary == null)
+                {
+                    <div style="color:red">
+                        @Html.Raw("Необходимо заполнить комментарий")
+                    </div>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Summary, "Введите комментарий")
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m.Summary)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="50px">
+                        @if (Model.IsValid == false && Model.Hours == 0)
+                        {
+                            <div style="color:red">
+                                @Html.Raw("Необходимо указать часы")
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.LabelFor(m => m.Hours, "Часы")
+                        }
+
+
+                    </td>
+                    <td>
+                    </td>
+                    <td width="50px">
+                        @if (Model.IsValid == false && Model.Minutes >= 60)
+                        {
+                            <div style="color:red">
+                                @Html.Raw("Корректно укажите минуты")
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.LabelFor(m => m.Minutes, "Минуты")
+                        }
+                    </td>
+                <tr>
+                    <td width="50px">
+                        @Html.TextBoxFor(m => m.Hours)
+                    </td>
+                    <td>
+                        @Html.Raw(":")
+                    </td>
+                    <td>
+
+                        @Html.TextBoxFor(m => m.Minutes)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Raw("Дата")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m.Date)
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p><input type="submit" value=" Изменить" /></p>
+
+        }
+    </div>
+</div>

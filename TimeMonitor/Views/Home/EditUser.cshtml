@@ -1,0 +1,55 @@
+﻿@model TimeMonitor.ViewModels.UserViewModel
+<br />
+<br />
+<div>
+    <h3>Изменение пользователя</h3>
+    <div>
+        @using (Html.BeginForm("SaveChanges", "Home", FormMethod.Post))
+        {
+
+            @Html.HiddenFor(m=>m.User_Id)
+            if (Model.EmailIsValid == false)
+            {
+                <div style="color:red">
+                    @Html.Raw("Такой Email уже используется")
+                </div>
+            }
+            if (Model.UserIsValid == false && Model.Email == null)
+            {
+                <div style="color:red">
+                    @Html.Raw("Необходимо заполнить Email")
+                </div>
+            }
+            @Html.LabelFor(m => m.Email, "Введите Email")
+            @Html.TextBoxFor(m => m.Email) @Html.Raw("@mail.ru")
+            <br />
+
+            if (Model.UserIsValid == false && Model.Name_1 == null)
+            {
+                <div style="color:red">
+                    @Html.Raw("Необходимо заполнить имя")
+                </div>
+            }
+            @Html.LabelFor(m => m.Name_1, "Введите имя")
+            @Html.TextBoxFor(m => m.Name_1)
+            <br />
+
+            if (Model.UserIsValid == false && Model.Name_2 == null)
+            {
+                <div style="color:red">
+                    @Html.Raw("Необходимо заполнить фамилию")
+                </div>
+            }
+            @Html.LabelFor(m => m.Name_2, "Введите фамилию")
+            @Html.TextBoxFor(m => m.Name_2)
+            <br />
+
+            @Html.LabelFor(m => m.Name_3, "Введите отчество")
+            @Html.TextBoxFor(m => m.Name_3)
+            <br />
+
+            <p><input type="submit" value="Изменить" /></p>
+
+        }
+    </div>
+</div>
