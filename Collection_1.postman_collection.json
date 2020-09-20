@@ -1,0 +1,626 @@
+{
+	"info": {
+		"_postman_id": "024eb643-952c-43ac-a17a-b4bcd142bac4",
+		"name": "Collection_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get AddUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/AddUser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"AddUser"
+					]
+				},
+				"description": "Доюавление пользователя"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						""
+					]
+				},
+				"description": "Получение списка пользователей"
+			},
+			"response": []
+		},
+		{
+			"name": "Get AddUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/AddUser?Email=TestEmail&Name_1=Nikolay&Name_2=Kirillov&Name_3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"AddUser"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": "TestEmail"
+						},
+						{
+							"key": "Name_1",
+							"value": "Nikolay"
+						},
+						{
+							"key": "Name_2",
+							"value": "Kirillov"
+						},
+						{
+							"key": "Name_3",
+							"value": null
+						}
+					]
+				},
+				"description": "Добавление пользователя с данными"
+			},
+			"response": []
+		},
+		{
+			"name": "Post EditUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/EditUser?userId=16",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"EditUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "16"
+						}
+					]
+				},
+				"description": "Изменение пользователя"
+			},
+			"response": []
+		},
+		{
+			"name": "Post SaveChanges User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/SaveChanges?Email=NewPostmanEmail&Name_1=Dmitriy&Name_2=Karbukov&Name_3=Denisovich&User_Id=16",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"SaveChanges"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": "NewPostmanEmail"
+						},
+						{
+							"key": "Name_1",
+							"value": "Dmitriy"
+						},
+						{
+							"key": "Name_2",
+							"value": "Karbukov"
+						},
+						{
+							"key": "Name_3",
+							"value": "Denisovich"
+						},
+						{
+							"key": "User_Id",
+							"value": "16"
+						}
+					]
+				},
+				"description": "Изменение пользователя"
+			},
+			"response": []
+		},
+		{
+			"name": "Post DeleteUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/DeleteUser?userId=18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"DeleteUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "18"
+						}
+					]
+				},
+				"description": "Удаление пользователя"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reports",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/Reports",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"Reports"
+					]
+				},
+				"description": "Отчеты"
+			},
+			"response": []
+		},
+		{
+			"name": "Post UserReports",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/UserReports?User_id=17",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"UserReports"
+					],
+					"query": [
+						{
+							"key": "User_id",
+							"value": "17"
+						}
+					]
+				},
+				"description": "Отчеты пользователя"
+			},
+			"response": []
+		},
+		{
+			"name": "Post CreateReport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/AddReport?user_id=17",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"AddReport"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "17"
+						}
+					]
+				},
+				"description": "Добавление отчета"
+			},
+			"response": []
+		},
+		{
+			"name": "Post AddReport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/AddReport?Summary=Работалtv&Hours=4&Minutes=12&Date=20.09.2020&User_id=17",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"AddReport"
+					],
+					"query": [
+						{
+							"key": "Summary",
+							"value": "Работалtv"
+						},
+						{
+							"key": "Hours",
+							"value": "4"
+						},
+						{
+							"key": "Minutes",
+							"value": "12"
+						},
+						{
+							"key": "Date",
+							"value": "20.09.2020"
+						},
+						{
+							"key": "User_id",
+							"value": "17"
+						}
+					]
+				},
+				"description": "Сохранение отчета"
+			},
+			"response": []
+		},
+		{
+			"name": "Post EditReport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/EditReport?rep_id=d21e4f5f-750e-47ca-af32-89d120ed8024",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"EditReport"
+					],
+					"query": [
+						{
+							"key": "rep_id",
+							"value": "d21e4f5f-750e-47ca-af32-89d120ed8024"
+						}
+					]
+				},
+				"description": "Изменение отчета"
+			},
+			"response": []
+		},
+		{
+			"name": "Post SaveChangesReport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/SaveChangesReport?Summary=Работал исправно&Hours=8&Minutes=20&User_id=17&Rep_id=d21e4f5f-750e-47ca-af32-89d120ed8024&Date=20.09.2020",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"SaveChangesReport"
+					],
+					"query": [
+						{
+							"key": "Summary",
+							"value": "Работал исправно"
+						},
+						{
+							"key": "Hours",
+							"value": "8"
+						},
+						{
+							"key": "Minutes",
+							"value": "20"
+						},
+						{
+							"key": "User_id",
+							"value": "17"
+						},
+						{
+							"key": "Rep_id",
+							"value": "d21e4f5f-750e-47ca-af32-89d120ed8024"
+						},
+						{
+							"key": "Date",
+							"value": "20.09.2020"
+						}
+					]
+				},
+				"description": "Изменение отчета"
+			},
+			"response": []
+		},
+		{
+			"name": "Post DeleteReport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/DeleteReport?rep_id=515c65dd-d395-41b6-857d-2752b7380c6d",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"DeleteReport"
+					],
+					"query": [
+						{
+							"key": "rep_id",
+							"value": "515c65dd-d395-41b6-857d-2752b7380c6d"
+						}
+					]
+				},
+				"description": "Удаление отчета"
+			},
+			"response": []
+		},
+		{
+			"name": "Add invalid user(Email)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/AddUser?Email=TestEmail",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"AddUser"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": "TestEmail"
+						}
+					]
+				},
+				"description": "Уже используемый Email"
+			},
+			"response": []
+		},
+		{
+			"name": "Add invalid User (without email)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/AddUser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"AddUser"
+					]
+				},
+				"description": "Добавление пользователя без имейла"
+			},
+			"response": []
+		},
+		{
+			"name": "Change invalid user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/SaveChanges",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"SaveChanges"
+					]
+				},
+				"description": "Изменение пользователя с ошибками"
+			},
+			"response": []
+		},
+		{
+			"name": "Add invalid report",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/AddReport",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"AddReport"
+					]
+				},
+				"description": "добавление отчета с ошибками"
+			},
+			"response": []
+		},
+		{
+			"name": "Change Invalid Report",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/SaveChangesReport?Minutes=20&User_id=17&Rep_id=d21e4f5f-750e-47ca-af32-89d120ed8024",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"SaveChangesReport"
+					],
+					"query": [
+						{
+							"key": "Summary",
+							"value": "Работал исправно",
+							"disabled": true
+						},
+						{
+							"key": "Hours",
+							"value": "8",
+							"disabled": true
+						},
+						{
+							"key": "Minutes",
+							"value": "20"
+						},
+						{
+							"key": "User_id",
+							"value": "17"
+						},
+						{
+							"key": "Rep_id",
+							"value": "d21e4f5f-750e-47ca-af32-89d120ed8024"
+						},
+						{
+							"key": "Date",
+							"value": "20.09.2020",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Изменение отчета с ошибками\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Delete User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/DeleteUser?userId=22",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"DeleteUser"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "22"
+						}
+					]
+				},
+				"description": "Удаление с неверным Id user"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Report Invalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/DeleteReport?rep_id=515c65dd-2222-2222-857d-2752b7380c62",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"DeleteReport"
+					],
+					"query": [
+						{
+							"key": "rep_id",
+							"value": "515c65dd-2222-2222-857d-2752b7380c62"
+						}
+					]
+				},
+				"description": "Удаление с неверным id отчета"
+			},
+			"response": []
+		},
+		{
+			"name": "Post EditReport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/Home/EditReport?rep_id=d21e4f5f-750e-47ca-af32-89d120ed8024",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"Home",
+						"EditReport"
+					],
+					"query": [
+						{
+							"key": "rep_id",
+							"value": "d21e4f5f-750e-47ca-af32-89d120ed8024"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
