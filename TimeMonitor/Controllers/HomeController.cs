@@ -115,20 +115,20 @@ namespace TimeMonitor.Controllers
             else
             {
                 var result = new ResultViewModel();
-                result.Message = "Пользователь с таким Id {0} не найден" + userId;
+                result.Message = "Пользователь с таким Id: " + userId + " не найден";
                 result.BackUrl = "Index";
                 return PartialView("Result", result);
             }
         }
 
-        public ActionResult ChangeUser(int userId)
+        public ActionResult EditUser(int userId)
         {
             var user = new User();
             var userDB = db.Users.FirstOrDefault(x => x.User_Id == userId && x.IsDeleted == false);
             if (userDB == null)
             {
                 var result = new ResultViewModel();
-                result.Message = "Пользователь с таким Id {0} не найден" + userId;
+                result.Message = "Пользователь с таким Id: " + userId + " не найден";
                 result.BackUrl = "Index";
                 return PartialView("Result", result);
             }
@@ -247,8 +247,9 @@ namespace TimeMonitor.Controllers
         [HttpPost]
         public ActionResult AddReport(ReportViewModel report)
         {
+            
             report.Summary = report.Summary == null ? report.Summary : report.Summary.Trim(' ');
-
+            report.IsValid = true;
             if (report.Summary == "" || report.Summary == null)
             {
                 report.IsValid = false;
@@ -260,6 +261,10 @@ namespace TimeMonitor.Controllers
             }
 
             if (report.Minutes >= 60)
+            {
+                report.IsValid = false;
+            }
+            if (report.Date == DateTime.MinValue)
             {
                 report.IsValid = false;
             }
@@ -292,7 +297,7 @@ namespace TimeMonitor.Controllers
             if (repDB == null)
             {
                 var result = new ResultViewModel();
-                result.Message = "Отчет с таким Id {0} не найден" + rep_id;
+                result.Message = "Отчет с таким Id: " + rep_id + " не найден";
                 result.BackUrl = "Reports";
                 return PartialView("Result", result);
             }
@@ -312,7 +317,7 @@ namespace TimeMonitor.Controllers
         {
 
             report.Summary = report.Summary == null ? report.Summary : report.Summary.Trim(' ');
-
+            report.IsValid = true;
             if (report.Summary == "" || report.Summary == null)
             {
                 report.IsValid = false;
@@ -327,6 +332,10 @@ namespace TimeMonitor.Controllers
             {
                 report.IsValid = false;
             }
+            if (report.Date == DateTime.MinValue)
+            {
+                report.IsValid = false;
+            }    
             if (!report.IsValid)
             {
                 return PartialView("AddReport", report);
@@ -355,7 +364,7 @@ namespace TimeMonitor.Controllers
             if (repDb == null)
             {
                 var result = new ResultViewModel();
-                result.Message = "Отчет с таким Id {0} не найден" + rep_id;
+                result.Message = "Отчет с таким Id: "+rep_id + " не найден";
                 result.BackUrl = "Reports";
                 return PartialView("Result", result);
             }

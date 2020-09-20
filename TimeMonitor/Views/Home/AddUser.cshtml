@@ -12,6 +12,12 @@
                     @Html.Raw("Необходимо заполнить Email")
                 </div>
             }
+            if (Model.EmailIsValid == false)
+            {
+                <div style="color:red">
+                    @Html.Raw("Такой Email уже используется")
+                </div>
+            }
             @Html.LabelFor(m => m.Email, "Введите Email")
             @Html.TextBoxFor(m => m.Email)@Html.Raw("@mail.ru")
             <br />

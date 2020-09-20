@@ -42,7 +42,7 @@
                     @Html.Raw(item.Name_1 + " " + item.Name_2 + " " + item.Name_3)
                 </td>
                 <td>
-                    @Html.ActionLink("Изменить", "ChangeUser", "Home", new { @userId = item.User_Id }, null)
+                    @Html.ActionLink("Изменить", "EditUser", "Home", new { @userId = item.User_Id }, null)
                 </td>
                 <td>
                     |

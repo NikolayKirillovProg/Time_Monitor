@@ -7,9 +7,9 @@
     <div>
         @using (Html.BeginForm("AddReport", "Home", FormMethod.Post, new { @report = Model }))
         {
-            @Html.HiddenFor(x=>x.IsValid)
-            @Html.HiddenFor(x=>x.Rep_id)
-            @Html.HiddenFor(x=>x.User_id)
+            @Html.HiddenFor(x => x.IsValid)
+            @Html.HiddenFor(x => x.Rep_id)
+            @Html.HiddenFor(x => x.User_id)
             <table>
                 @if (Model.IsValid == false && Model.Summary == null)
                 {
@@ -25,12 +25,12 @@
                         </td>
                     </tr>
                 }
-                    <tr>
-                        <td>
-                            @Html.TextBoxFor(m => m.Summary)
-                        </td>
-                    </tr>
-                
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m.Summary)
+                    </td>
+                </tr>
+
                 <tr>
                     <td width="50px">
                         @if (Model.IsValid == false && Model.Hours == 0)
@@ -44,10 +44,9 @@
                             @Html.LabelFor(m => m.Hours, "Часы")
                         }
 
-                        
+
                     </td>
                     <td>
-
                     </td>
                     <td width="50px">
                         @if (Model.IsValid == false && Model.Minutes >= 60)
@@ -60,7 +59,7 @@
                         {
                             @Html.LabelFor(m => m.Minutes, "Минуты")
                         }
-                        </td>
+                    </td>
                 <tr>
                     <td width="50px">
                         @Html.TextBoxFor(m => m.Hours)
@@ -75,12 +74,19 @@
                 </tr>
                 <tr>
                     <td>
-                        @Html.Raw("Дата")
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.TextBoxFor(m=>m.Date)
+                        @if (Model.IsValid == false && Model.Date == DateTime.MinValue)
+                        {
+                            <div style="color:red">
+                                @Html.Raw("Корректно укажите дату")
+                            </div>
+                        }
+                        else
+                        {
+
+                            @Html.Raw("Дата")
+
+                        }
+                        @Html.TextBoxFor(m => m.Date)
                     </td>
                 </tr>
             </table>

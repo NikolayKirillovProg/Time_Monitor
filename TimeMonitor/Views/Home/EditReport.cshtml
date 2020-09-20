@@ -74,11 +74,18 @@
                 </tr>
                 <tr>
                     <td>
-                        @Html.Raw("Дата")
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                        @if (Model.IsValid == false && Model.Date == DateTime.MinValue)
+                        {
+                            <div style="color:red">
+                                @Html.Raw("Корректно укажите дату")
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.Raw("Дата")
+
+                        }
+
                         @Html.TextBoxFor(m => m.Date)
                     </td>
                 </tr>
