@@ -22,5 +22,9 @@ namespace TimeMonitor.ViewModels
         public bool IsValid { get; set; }
 
         public DateTime Date { get; set; }
+
+        public int Year { get; set; }
+
+        public int Mounth { get; set; }
     }
 }

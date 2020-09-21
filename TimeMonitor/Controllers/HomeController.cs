@@ -212,6 +212,31 @@ namespace TimeMonitor.Controllers
             var users = db.Users.Where(x => x.IsDeleted == false).ToList();
             int selectedIndex = 0;
             SelectList usersList = new SelectList(users, "User_Id", "Email", selectedIndex);
+            List<Year> years = new List<Year>();
+            for (var i = 2000; i<=DateTime.Now.Year; i++)
+            {
+                years.Add(new Year { Year_id = i, Year_name = i.ToString() });
+            }
+            SelectList yearsList = new SelectList(years, "Year_id", "Year_name", selectedIndex);
+            List<Mounth> mounth = new List<Mounth>
+            {
+                new Mounth{ Mounth_id = 1, Mounth_name = "Январь" },
+                new Mounth{ Mounth_id = 2, Mounth_name = "Февраль" },
+                new Mounth{ Mounth_id = 3, Mounth_name = "Март" },
+                new Mounth{ Mounth_id = 4, Mounth_name = "Апрель" },
+                new Mounth{ Mounth_id = 5, Mounth_name = "Май" },
+                new Mounth{ Mounth_id = 6, Mounth_name = "Июнь" },
+                new Mounth{ Mounth_id = 7, Mounth_name = "Июль" },
+                new Mounth{ Mounth_id = 8, Mounth_name = "Август" },
+                new Mounth{ Mounth_id = 9, Mounth_name = "Сентябрь" },
+                new Mounth{ Mounth_id = 10, Mounth_name = "Октябрь" },
+                new Mounth{ Mounth_id = 11, Mounth_name = "Ноябрь" },
+                new Mounth{ Mounth_id = 12, Mounth_name = "Декабрь" }
+            };
+            SelectList mounthList = new SelectList(mounth, "Mounth_id", "Mounth_name", selectedIndex);
+
+            ViewBag.YearsList = yearsList;
+            ViewBag.MounthList = mounthList;
             ViewBag.UserList = usersList;
             var model = new ReportViewModel();
             model.Date = DateTime.Now;
@@ -225,8 +250,8 @@ namespace TimeMonitor.Controllers
             {
                 report.User_id = userId;
             }
-            var startDate = new DateTime(report.Date.Year, report.Date.Month, 1);
-            var endDate = new DateTime(report.Date.Year, report.Date.Month+1, 1);
+            var startDate = new DateTime(report.Year, report.Mounth, 1);
+            var endDate = new DateTime(report.Year, report.Mounth+1, 1);
             var user = db.Users.FirstOrDefault(x => x.User_Id == report.User_id && x.IsDeleted == false);
             ViewBag.User_id = report.User_id;
             ViewBag.FIO = user.Name_1 + " " + user.Name_2 + " " + user.Name_3;
